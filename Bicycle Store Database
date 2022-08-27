@@ -1,0 +1,40 @@
+
+--Create a bicyle store database 
+CREATE TABLE bikes (
+    id INTEGER PRIMARY KEY,
+    Model_of_Bike TEXT,
+    Color TEXT,
+    Bike_Size TEXT,
+    Cost INTEGER
+);
+
+
+INSERT INTO bikes VALUES(1, "Himiway Cruiser", "Black", "26in", 1200);
+INSERT INTO bikes VALUES(2, "Schwinn", "Red", "20in", 250);
+INSERT INTO bikes VALUES(3, "RidgeBack", "Brown/Gray", "26in", 750);
+INSERT INTO bikes VALUES(4, "EV Electra", "Siver", "26in", 1250);
+INSERT INTO bikes VALUES(5, "Stone Mountain", "Blue/Gray", "26in", 1799);
+INSERT INTO bikes VALUES(6, "GT Cycles", "Yellow", "20in", 500);
+INSERT INTO bikes VALUES(7, "Mongoose BT", "Black", "26in", 1299);
+INSERT INTO bikes VALUES(8, "Zeus", "White", "26in", 1899);
+INSERT INTO bikes VALUES(9, "Rino", "Black", "26in", 2899);
+INSERT INTO bikes VALUES(10, "Pluto-Max", "Black", "26in", 2499);
+INSERT INTO bikes VALUES(11, "Copper-Top EV", "Yellow", "20in", 1899);
+INSERT INTO bikes VALUES(12, "Mongoose GT", "Red", "26in", 2799);
+INSERT INTO bikes VALUES(13, "Saturn V", "Purple", "26in", 3299);
+INSERT INTO bikes VALUES(14, "Zenith ProMax", "Blue", "20in", 999);
+INSERT INTO bikes VALUES(15, "Onyx XLT", "Red", "26in", 1699);
+
+
+--display the databse ordered by Cost
+SELECT * FROM bikes ORDER BY Cost;
+
+--What is the cost of red bikes that are of size 26 inches.
+SELECT * FROM bikes WHERE Bike_Size = '26in' AND Color = 'Red' ORDER BY Cost;
+
+--What is the cost of bike between $1400 and $2000.
+SELECT Model_of_Bike, Color, Cost FROM bikes 
+WHERE Cost BETWEEN 1400 AND 2000 ORDER BY Cost ASC;
+
+--What is the total cost of all bikes
+SELECT SUM(Cost) FROM bikes;
